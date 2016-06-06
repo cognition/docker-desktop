@@ -3,6 +3,9 @@ DOCKER-DESKTOP
 
 ##Description
 
+For use with Android Development
+
+
 This Dockerfile creates a docker image and once it's executed it creates a container that runs X11 and SSH services.
 The ssh is used to forward X11 and provide you encrypted data communication between the docker container and your local machine.
 
