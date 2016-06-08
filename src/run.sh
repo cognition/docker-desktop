@@ -2,8 +2,8 @@
 
 
 echo "start Services"
-# restarts the xdm service
-/etc/init.d/xdm restart
+echo "Start the xdm service"
+/etc/init.d/xdm start
 
-# Start the ssh service
+echo "Start the ssh service"
 /usr/sbin/sshd -D

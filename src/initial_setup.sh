@@ -7,6 +7,7 @@ USER=${USER:-"docker"}
 
 if [ -f .setup_done ]; then
   echo "Container Already Initialized"
+  /bin/sh -c  /src/run.sh &
   exit 0
 fi
 
@@ -19,12 +20,13 @@ mkdir /var/run/sshd
 DOCKER_PASSWORD=`pwgen -c -n -1 12`
 echo User: $USER Password: $DOCKER_PASSWORD
 DOCKER_ENCRYPYTED_PASSWORD=`perl -e 'print crypt('"$DOCKER_PASSWORD"', "aa"),"\n"'`
-useradd -m --shell=/bin/bash -d /home/docker -p $DOCKER_ENCRYPYTED_PASSWORD $USER
-sed -Ei 's/adm:x:4:/docker:x:4:docker/' /etc/group
-adduser docker sudo
+useradd -m --shell=/bin/bash -d /home/$USER -p $DOCKER_ENCRYPYTED_PASSWORD $USER
+sed -Ei "s/adm:x:4:/${USER}:x:4:${USER}/" /etc/group
+adduser $SUSER sudo
 
 # Set the default shell as bash for docker user.
-#chsh -s /bin/bash $USER
+chgrp $USER: /opt
+chmod  775 /opt
 
 # Copy the config files into the docker directory
 cd /src/config/ && sudo -u $USER cp -R .[a-z]* [a-z]* /home/$USER/
@@ -33,6 +35,8 @@ echo "$USER  ALL=(ALL:ALL) NOPASSWD:  ALL" > /etc/sudoers.d/$USER
 
 touch /.setup_done
 echo "Setup is done" 
+echo "start Services" 
+/bin/sh -c  /src/run.sh &
 
 exit 0
 

@@ -71,8 +71,10 @@ ADD src/ /src
 ADD set-time.sh  /set-time.sh
 RUN  /set-time.sh
 #
+VOLUME ["/tmp","/opt"]
 #
 EXPOSE 22
 ## Start xdm and ssh services.
 #CMD ["/bin/bash"]
-CMD ["/bin/bash", "/src/run.sh"]
+CMD ["/bin/bash", "/src/initial_setup.sh.sh"]
+
