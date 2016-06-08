@@ -1,0 +1,8 @@
+
+android-build-cmd.sh*
+build-cmd.sh*
+CHANGELOG.md
+MAINTAINER
+README.md
+.gitignore 
+LICENSE
