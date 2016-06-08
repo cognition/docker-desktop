@@ -28,7 +28,7 @@ adduser docker sudo
 
 # Copy the config files into the docker directory
 cd /src/config/ && sudo -u $USER cp -R .[a-z]* [a-z]* /home/$USER/
-echo "$USER ALL:ALL NOPASSWD: ALL" > /etc/sudoers.d/$USER
+echo "$USER  ALL=(ALL:ALL) NOPASSWD:  ALL" > /etc/sudoers.d/$USER
 
 
 touch /.setup_done
