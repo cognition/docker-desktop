@@ -30,7 +30,7 @@ RUN echo exit 1 > /usr/sbin/policy-rc.d; chmod +x /usr/sbin/policy-rc.d
 RUN apt-key update && apt-get update  ;  apt-get upgrade -y 
 #
 ## Installing the environment required: xserver, xdm, flux box, roc-filer and ssh
-RUN apt-get install -y xpra rox-filer openssh-server pwgen xserver-xephyr xdm fluxbox xvfb sudo wget build-essential default-jdk git curl autoconf unzip zip zlib1g-dev gawk gperf cmake git lib32stdc++6 lib32z1 lib32z1-dev bash-completion expect gcc-4.8 apt-get utils xterm synaptic net-tools vim  
+RUN apt-get install -y xpra rox-filer openssh-server pwgen xserver-xephyr xdm fluxbox xvfb sudo wget build-essential default-jdk git curl autoconf unzip zip zlib1g-dev gawk gperf cmake git lib32stdc++6 lib32z1 lib32z1-dev bash-completion expect gcc-4.8 apt-utils xterm synaptic net-tools vim  
 #
 #ADD https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz   /
 #ADD http://dl.google.com/android/repository/android-ndk-r11c-linux-x86_64.zip /
