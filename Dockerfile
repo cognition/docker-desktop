@@ -30,10 +30,10 @@ RUN echo exit 1 > /usr/sbin/policy-rc.d; chmod +x /usr/sbin/policy-rc.d
 RUN apt-key update && apt-get update  ;  apt-get upgrade -y 
 #
 ## Installing the environment required: xserver, xdm, flux box, roc-filer and ssh
-RUN apt-get install -y xpra rox-filer openssh-server pwgen xserver-xephyr xdm fluxbox xvfb sudo wget build-essential default-jdk git curl autoconf unzip zip zlib1g-dev gawk gperf cmake git lib32stdc++6 lib32z1 lib32z1-dev bash-completion expect gcc-4.8 
+RUN apt-get install -y xpra rox-filer openssh-server pwgen xserver-xephyr xdm fluxbox xvfb sudo wget build-essential default-jdk git curl autoconf unzip zip zlib1g-dev gawk gperf cmake git lib32stdc++6 lib32z1 lib32z1-dev bash-completion expect gcc-4.8 apt-get utils xterm synaptic net-tools vim  
 #
-ADD https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz   /
-ADD http://dl.google.com/android/repository/android-ndk-r11c-linux-x86_64.zip /
+#ADD https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz   /
+#ADD http://dl.google.com/android/repository/android-ndk-r11c-linux-x86_64.zip /
 #
 #
 ## Configuring xdm to allow connections from any IP address and ssh to allow X11 Forwarding. 
@@ -59,7 +59,7 @@ RUN rm -rf /var/lib/dpkg/info/fuse.postinst
 RUN apt-get -y install fuse
 #
 ## Installing the apps: Firefox 
-RUN apt-get install -y firefox xterm
+RUN apt-get install -y firefox
 #
 ## Set locale (fix the locale warnings)
 RUN localedef -v -c -i en_US -f UTF-8 en_US.UTF-8 || :
@@ -74,5 +74,5 @@ RUN  /set-time.sh
 #
 EXPOSE 22
 ## Start xdm and ssh services.
-CMD ["/bin/bash"]
-CMD ["/bin/bash", "/src/startup.sh"]
+#CMD ["/bin/bash"]
+CMD ["/bin/bash", "/src/run.sh"]
