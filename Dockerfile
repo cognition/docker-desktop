@@ -39,7 +39,7 @@ ADD http://dl.google.com/android/repository/android-ndk-r11c-linux-x86_64.zip /
 ## Configuring xdm to allow connections from any IP address and ssh to allow X11 Forwarding. 
 RUN sed -i 's/DisplayManager.requestPort/!DisplayManager.requestPort/g' /etc/X11/xdm/xdm-config
 RUN sed -i '/#any host/c\*' /etc/X11/xdm/Xaccess
-RUN ln -s /usr/bin/Xorg /usr/bin/X
+RUN ln -sf /usr/bin/Xorg /usr/bin/X
 RUN echo X11Forwarding yes >> /etc/ssh/ssh_config
 #
 ## Fix PAM login issue with sshd
@@ -75,4 +75,4 @@ RUN  /set-time.sh
 EXPOSE 22
 ## Start xdm and ssh services.
 CMD ["/bin/bash"]
-#CMD ["/bin/bash", "/src/startup.sh"]
+CMD ["/bin/bash", "/src/startup.sh"]
