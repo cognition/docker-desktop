@@ -3,9 +3,6 @@
   <rule match="/usr/bin/firefox">
     <icon>/usr/share/pixmaps/firefox.png</icon>
   </rule>
-  <rule match="/usr/bin/libreoffice">
-    <icon>/usr/share/icons/hicolor/48x48/apps/libreoffice-calc.png</icon>
-  </rule>
   <rule match="/usr/bin/xterm">
     <icon>/usr/share/pixmaps/xterm-color_48x48.xpm</icon>
   </rule>

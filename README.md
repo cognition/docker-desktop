@@ -16,7 +16,7 @@ The applications can be rootless, so the client machine manages the windows that
 Fluxbox and ROX-Filer creates a very minimalist way to manages the windows and files. 
 
 
-![Docker L](image/docker-desktop.png "Docker-Desktop")
+
 
 OBS: The client machine needs to have a X11 server installed (Xpra). See the "Notes" below. 
 
