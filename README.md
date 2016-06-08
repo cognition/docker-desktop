@@ -20,30 +20,7 @@ Fluxbox and ROX-Filer creates a very minimalist way to manages the windows and f
 
 OBS: The client machine needs to have a X11 server installed (Xpra). See the "Notes" below. 
 
-##Docker Installation
 
-###On Ubuntu:
-Docker is available as a Ubuntu PPA (Personal Package Archive), hosted on launchpad which makes installing Docker on Ubuntu very easy.
-
-```
-#Add the PPA sources to your apt sources list.
-sudo apt-get install python-software-properties && sudo add-apt-repository ppa:dotcloud/lxc-docker
- 
-# Update your sources
-sudo apt-get update
- 
-# Install, you will see another warning that the package cannot be authenticated. Confirm install.
-sudo apt-get install lxc-docker
-```
-###On Windows:
-Requirements:
-- Installation Tutorial (http://docs.docker.io/en/latest/installation/windows/)
-
-###On Mac OS X:
-Requirements:
-- Installation Tutorial (http://docs.docker.io/en/latest/installation/vagrant/)
-
-##Installation
 
 
 ###Building the docker image
@@ -53,7 +30,7 @@ $ docker build -t [username]/docker-desktop git://github.com/rogaha/docker-deskt
 
 OR
 
-$ git clone https://github.com/rogaha/docker-desktop.git
+$ git clone https://github.com/cognition/docker-desktop 
 $ cd docker-desktop
 $ docker build -t [username]/docker-desktop .
 ```
