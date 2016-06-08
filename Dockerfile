@@ -65,7 +65,7 @@ RUN apt-get install -y firefox
 RUN localedef -v -c -i en_US -f UTF-8 en_US.UTF-8 || :
 #
 ## Copy the files into the container
-ADD . /src
+ADD src/ /src
 #
 ## Set Time Stamp of Build
 ADD set-time.sh  /set-time.sh
